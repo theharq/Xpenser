@@ -9,6 +9,9 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.harqlabs.bancolombia"
+        },
+        "com.rjfun.cordova.sms": {
+            "PACKAGE_NAME": "com.harqlabs.bancolombia"
         }
     },
     "dependent_plugins": {}

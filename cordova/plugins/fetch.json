@@ -6,5 +6,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.rjfun.cordova.sms": {
+        "source": {
+            "type": "registry",
+            "id": "com.rjfun.cordova.sms"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

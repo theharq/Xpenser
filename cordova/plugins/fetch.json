@@ -7,10 +7,10 @@
         "is_top_level": true,
         "variables": {}
     },
-    "com.rjfun.cordova.sms": {
+    "cordova-plugin-sms": {
         "source": {
             "type": "registry",
-            "id": "com.rjfun.cordova.sms"
+            "id": "cordova-plugin-sms"
         },
         "is_top_level": true,
         "variables": {}

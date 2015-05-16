@@ -1,1 +1,21 @@
-{{outlet}}
+<div class="bar bar-header bar-balanced">
+  <h1 class="title">My Expenses</h1>
+</div>
+<div class="scroll-content overflow-scroll has-header has-footer">
+
+  <button class="button button-full button-calm">
+    Reporte x Categorías
+  </button>
+
+  {{#each model as |transaction|}}
+
+    <div class="card">
+      <div class="item item-divider">
+        {{transaction.amount}} {{transaction.date}}
+      </div>
+      <div class="item item-text-wrap">
+        {{transaction.note}}
+      </div>
+    </div>
+  {{/each}}
+</div>

@@ -1,21 +1,33 @@
 <div class="bar bar-header bar-balanced">
-  <h1 class="title">My Expenses</h1>
+  <button {{action "smsImport"}} class="button button-icon icon ion-navicon button-clear button-dark"></button>
+  <div class="h1 title">$ 20.0000.000</div>
+  <button class="button button-icon ion-android-more-vertical button-clear button-dark"></button>
 </div>
-<div class="scroll-content overflow-scroll has-header has-footer">
 
-  <button {{action "smsImport"}} class="button button-full button-calm">
-    Importar SMS
-  </button>
+<div class="bar bar-subheader bar-dark">
+  <h2 class="title">Este Mes</h2>
+</div>
+
+<div class="scroll-content overflow-scroll has-header has-subheader">
+
+  <div class="list">
+
+    <div class="item item-icon-right">
+      <h2>Resumen</h2>
+      <i class="icon ion-chevron-right"></i>
+      <p>Toca para ver un informe completo</p>
+    </div>
+
+  </div>
 
   {{#each model as |transaction|}}
 
-    <div class="card">
-      <div class="item item-divider">
-        {{transaction.amount}} {{transaction.date}}
-      </div>
-      <div class="item item-text-wrap">
-        {{transaction.note}}
-      </div>
+    <div class="item item-transaction">
+      <img src="{{transaction.categoryImage}}">
+      <h2>{{transaction.category}}</h2>
+      <span>$ {{transaction.amount}}</span>
+      <p>{{transaction.note}}</p>
     </div>
+
   {{/each}}
 </div>

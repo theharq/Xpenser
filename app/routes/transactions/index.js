@@ -2,6 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function(){
-    return this.store.all('transaction');
+    return this.store.findAll('transaction');
   }
 });

@@ -11,14 +11,7 @@
 
   {{overview-card}}
 
-  {{#each filteredTransactions as |transaction|}}
-
-    <div class="item item-transaction">
-      <img src="{{transaction.categoryImage}}">
-      <h2>{{transaction.category}}</h2>
-      <span>$ {{transaction.amount}}</span>
-      <p>{{transaction.note}}</p>
-    </div>
-
+  {{#each groupedTransactions as |groupedTransaction|}}
+    {{day-card groupedTransaction=groupedTransaction}}
   {{/each}}
 </div>

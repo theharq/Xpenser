@@ -2,7 +2,7 @@
 
   <div class="item item-day">
     <b>{{weekday}} {{day}}</b> <span>{{month}} {{year}}</span>
-    <span class="amount">$ {{amountsTotal}}</span>
+    <span class="amount">{{format-money amountsTotal}}</span>
     <hr>
   </div>
   {{#each groupedTransaction.transactions as |transaction|}}

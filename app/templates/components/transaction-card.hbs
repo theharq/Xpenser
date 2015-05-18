@@ -1,6 +1,6 @@
 <div class="item item-transaction">
   <img src="{{transaction.categoryImage}}">
   <h2>{{transaction.category}}</h2>
-  <span class="amount">$ {{transaction.amount}}</span>
+  <span class="amount">{{format-money transaction.amount}}</span>
   <p>{{transaction.note}}</p>
 </div>

@@ -2,9 +2,15 @@
   background-color: #EEEEEE;
 }
 
+.item-day{
+  border-style: none;
+  margin-top: 15px;
+}
+
 .item-transaction{
   padding-left: 72px;
   min-height: 72px;
+  border-style: none;
 }
 
 .item-transaction img:first-child{
@@ -22,6 +28,6 @@
   display: inline-block;
 }
 
-.item-transaction span{
+.amount{
   float: right;
 }

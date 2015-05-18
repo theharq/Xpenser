@@ -1,9 +1,10 @@
 <div class="list">
 
-  <div class="item item-divider">
-    {{formattedDate}} {{amountsTotal}}
+  <div class="item item-day">
+    <b>{{weekday}} {{day}}</b> <span>{{month}} {{year}}</span>
+    <span class="amount">$ {{amountsTotal}}</span>
+    <hr>
   </div>
-
   {{#each groupedTransaction.transactions as |transaction|}}
     {{transaction-card transaction=transaction}}
   {{/each}}

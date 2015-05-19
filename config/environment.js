@@ -22,6 +22,10 @@ module.exports = function(environment) {
     cordova: {
       rebuildOnChange: false,
       emulate: false
+    },
+
+    contentSecurityPolicy: {
+      'style-src': "'self' 'unsafe-inline'"
     }
   };
 

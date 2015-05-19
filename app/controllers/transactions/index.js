@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { dateHelpers } from '../../utils/date-helpers';
 
 export default Ember.Controller.extend({
 
@@ -26,7 +27,31 @@ export default Ember.Controller.extend({
 
   actions: {
     smsImport: function(){
-      alert("to be implemented");
+      var self = this;
+      var regexAmount = new RegExp(/\$([0-9]+\S*)/);
+      var regexDate = new RegExp(/\s(\d{2}\/\d{2}\/\d{4})/);
+
+      SMS.listSMS({address: '85814', maxCount: 9999}, function(data){
+
+        data.forEach(function(transaction){
+
+          var msg = transaction.body;
+
+          if (regexAmount.test(msg)){
+
+            let newTransaction = self.store.createRecord('transaction', {
+              note: msg,
+              date: dateHelpers(msg.match(regexDate)[1]).toDate(),
+              originalAmount: msg.match(regexAmount)[1]
+            });
+
+            newTransaction.save();
+          }
+        });
+
+      }, function(err){
+        alert('error listing sms: ' + err);
+      });
 
       return false;
     }

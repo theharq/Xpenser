@@ -30,6 +30,7 @@ export default Ember.Controller.extend({
       var self = this;
       var regexAmount = new RegExp(/\$([0-9]+\S*)/);
       var regexDate = new RegExp(/\s(\d{2}\/\d{2}\/\d{4})/);
+      var currentTransactions = self.get('model');
 
       SMS.listSMS({address: '85814', maxCount: 9999}, function(data){
 
@@ -37,7 +38,7 @@ export default Ember.Controller.extend({
 
           var msg = transaction.body;
 
-          if (regexAmount.test(msg)){
+          if (!currentTransactions.isAny('note', msg) && regexAmount.test(msg)){
 
             let newTransaction = self.store.createRecord('transaction', {
               note: msg,

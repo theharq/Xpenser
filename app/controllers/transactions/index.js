@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import groupBy from 'ember-group-by';
 import { dateHelpers } from '../../utils/date-helpers';
 import { listSMS } from '../../utils/list-sms';
 
@@ -16,22 +17,7 @@ export default Ember.Controller.extend({
     });
   }),
 
-  groupedTransactions: Ember.computed('sortedTransactions.[]', function(){
-    var groupedTransactions = Ember.A();
-
-    this.get('sortedTransactions').forEach(function(transaction){
-      var key = transaction.get('date').toISOString(),
-          group = groupedTransactions.findBy('key', key) || Ember.Object.create({key: key, transactions: Ember.A()});
-
-      if(!groupedTransactions.contains(group)) {
-        groupedTransactions.pushObject(group);
-      }
-
-      group.transactions.pushObject(transaction);
-    });
-
-    return groupedTransactions;
-  }),
+  groupedTransactions: groupBy('sortedTransactions', 'dateTime'),
 
   actions: {
     smsImport: function(){

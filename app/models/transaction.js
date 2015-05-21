@@ -8,6 +8,10 @@ export default DS.Model.extend({
   category: DS.attr('string', {defaultValue: 'Otros'}),
   categoryImage: DS.attr('string', {defaultValue: 'ember.png'}),
 
+  dateTime: Ember.computed(function(){
+    return this.get('date').getTime();
+  }),
+
   amount: Ember.computed('originalAmount', function(){
     let amount = this.get('originalAmount');
     let decimal = /\,\d{2}$/.test(amount) ? ',' : '.';

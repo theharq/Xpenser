@@ -5,7 +5,7 @@
     <span class="amount">{{format-money amountsTotal}}</span>
     <hr>
   </div>
-  {{#each groupedTransaction.transactions as |transaction|}}
+  {{#each groupedTransaction.items as |transaction|}}
     {{transaction-card transaction=transaction}}
   {{/each}}
 </div>

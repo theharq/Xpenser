@@ -9,14 +9,8 @@ export default Ember.Controller.extend({
     return transaction.get('date').getMonth() === new Date().getMonth();
   }),
 
-  sortedTransactions: Ember.computed('filteredTransactions', function() {
-    return Ember.ArrayProxy.createWithMixins(Ember.SortableMixin, {
-      sortProperties: ['date'],
-      sortAscending: false,
-      content: this.get('filteredTransactions')
-    });
-  }),
-
+  sortingDateDesc: ['date:desc'],
+  sortedTransactions: Ember.computed.sort('filteredTransactions', 'sortingDateDesc'),
   groupedTransactions: groupBy('sortedTransactions', 'dateTime'),
 
   actions: {

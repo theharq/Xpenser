@@ -16,9 +16,9 @@ export default Ember.Controller.extend({
     });
   }),
 
-  groupedTransactions: Ember.computed('filteredTransactions', function(){
+  groupedTransactions: Ember.computed('sortedTransactions.[]', function(){
     var groupedTransactions = Ember.A();
-    var transactions = this.get('filteredTransactions');
+    var transactions = this.get('sortedTransactions');
 
     transactions.forEach(function(transaction){
       var key = transaction.get('date').toISOString(),

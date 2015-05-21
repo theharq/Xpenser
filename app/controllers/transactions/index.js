@@ -18,15 +18,15 @@ export default Ember.Controller.extend({
 
   groupedTransactions: Ember.computed('sortedTransactions.[]', function(){
     var groupedTransactions = Ember.A();
-    var transactions = this.get('sortedTransactions');
 
-    transactions.forEach(function(transaction){
+    this.get('sortedTransactions').forEach(function(transaction){
       var key = transaction.get('date').toISOString(),
-          group = groupedTransactions.findBy('key', key) || Ember.Object.create({key: key, count: 0, transactions: Ember.A()});
+          group = groupedTransactions.findBy('key', key) || Ember.Object.create({key: key, transactions: Ember.A()});
+
       if(!groupedTransactions.contains(group)) {
         groupedTransactions.pushObject(group);
       }
-      group.incrementProperty('count');
+
       group.transactions.pushObject(transaction);
     });
 

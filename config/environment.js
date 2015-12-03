@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'bancolombia',
+    modulePrefix: 'xpenser',
     environment: environment,
     baseURL: '/',
     defaultLocationType: 'auto',

@@ -1,7 +1,7 @@
 {
-  "name": "bancolombia",
+  "name": "xpenser",
   "version": "0.0.0",
-  "description": "Small description for bancolombia goes here",
+  "description": "Small description for xpenser goes here",
   "private": true,
   "directories": {
     "doc": "doc",

@@ -1,4 +1,4 @@
-# Bancolombia
+# Xpenser
 
 This App will read your sms notifications from your Bank and will give you a insight of where do you money go.
 
@@ -31,6 +31,9 @@ You will need the following things properly installed on your computer.
 ### Running on emulator
 `ember cordova emulate android`
 
+### Code Generators
+
+Make use of the many generators for code, try `ember help generate` for more details
 
 ### Running Tests
 
@@ -45,3 +48,12 @@ You will need the following things properly installed on your computer.
 ### Deploying
 
 Specify what it takes to deploy your app.
+
+## Further Reading / Useful Links
+
+* [ember.js](http://emberjs.com/)
+* [ember-cli](http://www.ember-cli.com/)
+* Development Browser Extensions
+  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+

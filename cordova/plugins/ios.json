@@ -7,11 +7,11 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.harqlabs.bancolombia"
-        },
         "cordova-plugin-sms": {
-            "PACKAGE_NAME": "com.harqlabs.bancolombia"
+            "PACKAGE_NAME": "com.harqlabs.xpenser"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.harqlabs.xpenser"
         }
     },
     "dependent_plugins": {}

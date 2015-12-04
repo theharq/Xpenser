@@ -4,25 +4,19 @@ import groupBy from 'ember-group-by';
 import { listSMS } from '../../utils/list-sms';
 
 export default Ember.Controller.extend({
-
-  filteredTransactions: Ember.computed.filter('model', function(transaction) {
-    return transaction.get('date').getMonth() === new Date().getMonth();
-  }),
-
   sortingDateDesc: ['date:desc'],
-  sortedTransactions: Ember.computed.sort('filteredTransactions', 'sortingDateDesc'),
+  sortedTransactions: Ember.computed.sort('model', 'sortingDateDesc'),
   groupedTransactions: groupBy('sortedTransactions', 'dateTime'),
 
   actions: {
-    smsImport: function(){
-      var self = this;
-      var regexAmount = new RegExp(/\$([0-9]+\S*)/);
-      var regexDate = new RegExp(/\s(\d{2}\/\d{2}\/\d{4})/);
-      var localTransactions = self.get('model');
+    smsImport(){
+      const regexAmount = new RegExp(/\$([0-9]+\S*)/);
+      const regexDate = new RegExp(/\s(\d{2}\/\d{2}\/\d{4})/);
+      let localTransactions = this.get('model');
 
-      listSMS({address: '85814', maxCount: 9999}).then(function(transactions) {
+      listSMS({address: '85814', maxCount: 9999}).then((transactions) => {
 
-        transactions.forEach(function(transaction){
+        transactions.forEach((transaction) => {
 
           var msg = transaction.body;
 
@@ -30,7 +24,7 @@ export default Ember.Controller.extend({
 
             let newTransaction = self.store.createRecord('transaction', {
               note: msg,
-              date: moment(msg.match(regexDate)[1]).toDate(),
+              date: moment(msg.match(regexDate)[1], "DD/MM/YYYY").toDate(),
               originalAmount: msg.match(regexAmount)[1]
             });
 

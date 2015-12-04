@@ -1,6 +1,6 @@
 import Ember from 'ember';
+import moment from 'moment';
 import groupBy from 'ember-group-by';
-import { dateHelpers } from '../../utils/date-helpers';
 import { listSMS } from '../../utils/list-sms';
 
 export default Ember.Controller.extend({
@@ -30,7 +30,7 @@ export default Ember.Controller.extend({
 
             let newTransaction = self.store.createRecord('transaction', {
               note: msg,
-              date: dateHelpers(msg.match(regexDate)[1]).toDate(),
+              date: moment(msg.match(regexDate)[1]).toDate(),
               originalAmount: msg.match(regexAmount)[1]
             });
 
